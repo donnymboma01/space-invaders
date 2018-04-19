@@ -49,3 +49,10 @@ span#chronotime,span#score{
   padding : 4px;
   margin : 4px;
 }
+#canvas{
+    position: relative;
+    margin: auto;
+    width: 1000px;
+    height: 400px;
+
+}
