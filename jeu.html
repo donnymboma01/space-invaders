@@ -3,28 +3,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
     <head>
-        <meta charset="UTF-8"/>
-        <title>Bataille Spatiale</title>
-        <meta name="author" content="YourName"/>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>Bataille Spatiale</title>
+    <meta name="author" content="YourName" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
 
-    </head>
+</head>
 
-    <body onkeydown="affKeyCode(event)">
-<div id="canvas">
+<body onkeydown="affKeyCode(event)">
+    <div id="canvas">
         <canvas id="stars" width="1000" height="400">
         </canvas>
         <div id="game">
             <img id="vaisseau">
-        </div>
-</div>
-        <div id="control">
-            score  : <span id="score"> 0 </span>
-            <span id="chronotime">00:00</span><br>
-        </div>
+            <img id="img">
 
-    </body>
+        </div>
+    </div>
+    <div id="control">
+        score : <span id="score"> 0 </span>
+        <span id="chronotime">00:00</span><br>
+    </div>
+
+</body>
 <script src="Vaisseau.js"></script>
-        <script src="main.js"></script>
+    <script src="Tir.js"></script>
+<script src="main.js"></script>
+
 </html>

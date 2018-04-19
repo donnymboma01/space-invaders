@@ -4,7 +4,12 @@
 var afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
 afficherLeVaisseaux.initHtml();
 
-//la foncttion permet de deplacer le vaisseau sur le champ de bataille.
+//on crée un objet tir et on affiche le tir sur le champ de bataille.
+
+var tirer = new Tir(40,200);
+tirer.initHtml();
+
+//la fonction permet de deplacer le vaisseau sur le champ de bataille.
 
 function affKeyCode(event) {
     var key = event.keyCode;
@@ -15,3 +20,4 @@ function affKeyCode(event) {
         afficherLeVaisseaux.move(20);
     }
 }
+tirer.move();
