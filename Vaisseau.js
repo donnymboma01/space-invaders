@@ -51,6 +51,7 @@ class Vaisseau {
 
         }
     }
+    //méthode arme le vaisseau des munitions necessaire pour combattre sur le champ de bataille.
 
     fire(){
         let tirer = new Tir(87,this.posY+10);

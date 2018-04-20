@@ -1,14 +1,11 @@
 
 let tableaux = [];
-//on afffiche le vaisseau su le champ de bataille,pour mon cas ca sera un petit vaisseau.
-
 var afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
+var tirer = new Tir(40,200);
+var soucoupe = new Soucoupe(900,200);
+soucoupe.initHtml();
 afficherLeVaisseaux.initHtml();
 
-//on crée un objet tir et on affiche le tir sur le champ de bataille.
-
-var tirer = new Tir(40,200);
-//tirer.initHtml();
 
 //la fonction permet de deplacer le vaisseau sur le champ de bataille.
 
