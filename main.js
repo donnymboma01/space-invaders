@@ -1,10 +1,11 @@
-
 let tableaux = [];
 var afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
 var tirer = new Tir(40,200);
 var soucoupe = new Soucoupe(900,200);
 soucoupe.initHtml();
 afficherLeVaisseaux.initHtml();
+tirer.move();
+soucoupe.move();
 
 
 //la fonction permet de deplacer le vaisseau sur le champ de bataille.
@@ -21,4 +22,3 @@ function affKeyCode(event) {
         afficherLeVaisseaux.fire();
     }
 }
-tirer.move();

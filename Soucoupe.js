@@ -1,10 +1,11 @@
-let comptage= 0;
+let comptage = 0;
 class Soucoupe {
     constructor(posX, posY) {
         this.posX = posX;
         this.posY = posY;
         this.img = "images/flyingSaucer-petit.png";
-        this.id ;
+        this.id = comptage;
+        comptage++;
     }
     get posX() {
         return this._posX;
@@ -35,13 +36,16 @@ class Soucoupe {
 
     }
     display() {
-        var soucoupe = document.createElement(this.id);
-        soucoupe.style.top=this.posY +"px";
-        soucoupe.style.left=this.posX + "px";
+        var soucoupe = document.getElementById(this.id);
+        soucoupe.style.top = this.posY + "px";
+        soucoupe.style.left = this.posX + "px";
 
 
     }
     move() {
+        var x = Math.floor((Math.random()* 10) + 1);
+        this.posY += x;
+        this.posX -=50;
 
     }
 }
