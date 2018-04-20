@@ -22,3 +22,8 @@ function affKeyCode(event) {
         afficherLeVaisseaux.fire();
     }
 }
+setInterval(game,3000);
+
+function game() {
+
+}
