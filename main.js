@@ -61,7 +61,8 @@ function avancementTir() {
     }
 
 }
-//la fonction permet l'avancement des soucoupes ennemis de droite à gauche.
+
+//la fonction permet l'avancement des soucoupes ennemis vers le vaisseau de droite à gauche.
 function avancementSoucoupes() {
     for (let j = 0; j < tab.length; j++) {
         tab[j].move();
@@ -72,6 +73,12 @@ function avancementSoucoupes() {
 
 //fait avancer les tirs avec une intervalle de temps de 100 millisecondes(plus vite) différent de celui définit pour la fonction game car mieux .
 setInterval(avancementTir,100);
+
+
+//Vérifie si une soucoupe a été touchée par un tir,si oui la soucoupe est supprimiée du champ de bataille.
+function soucoupeDetruite(){
+
+}
 
 
 //la fonction reprend prèsque les autres fonctions importantes du jeu et permet la dynamique du jeu.
