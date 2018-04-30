@@ -48,4 +48,5 @@ class Soucoupe {
         this.posX -=50;
 
     }
+
 }

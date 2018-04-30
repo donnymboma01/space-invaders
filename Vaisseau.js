@@ -45,7 +45,7 @@ class Vaisseau {
     //le vaisseau ne doit pas depasser le cadre.
 
     move(distance) {
-        if (this.posY + distance > 0 && this.posY + distance < 400) {
+        if (this.posY + distance > 10 && this.posY + distance < 370) {
             this.posY += distance;
             this.dislay();
 
