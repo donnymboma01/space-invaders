@@ -45,7 +45,7 @@ class Tir {
 
     }
     move(){
-            this.posX +=30;
+            this.posX = this.posX+30 ;
             this.display();
 
     }
