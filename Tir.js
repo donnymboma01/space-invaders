@@ -1,11 +1,10 @@
-let compteur=0;
 class Tir {
 
     constructor(posX,posY){
         this.posX=posX;
         this.posY=posY;
         this.img="images/tir.png";
-        this.id=compteur++;
+        this.id=tableaux.length;
     }
     get id(){
         return this._id;
@@ -27,7 +26,7 @@ class Tir {
     }
     initHtml(){
         var tirer = document.createElement("img");
-        tirer.setAttribute("id",this.id);
+        tirer.setAttribute("id","tir"+this.id);
         tirer.src=this.img;
         tirer.style.position="absolute";
         tirer.style.top=this.posY +"px";
@@ -35,17 +34,17 @@ class Tir {
         document.getElementById("game").appendChild(tirer);
     }
     display(){
-        var tirer = document.createElement("img");
+        var tirer = document.getElementById("tir"+this.id);
         tirer.src=this.img;
-        tirer.style.position="absolute";
-        tirer.style.top=this.posX +"px";
+        //tirer.style.position="absolute";
+        tirer.style.top=this.posY +"px";
         tirer.style.left=this.posX + "px";
 
 
 
     }
     move(){
-            this.posX = this.posX+30 ;
+            this.posX +=10 ;
             this.display();
 
     }

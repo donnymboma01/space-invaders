@@ -55,8 +55,6 @@ class Vaisseau {
 
    fire(){
         let tirer = new Tir(87,this.posY+10);
-        tableaux = [tirer];
-        //tirer.initHtml();
         return tirer;
     }
 }

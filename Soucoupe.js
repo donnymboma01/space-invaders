@@ -27,7 +27,7 @@ class Soucoupe {
     }
     initHtml() {
         var soucoupe = document.createElement("img");
-        soucoupe.setAttribute("id", this.id);
+        soucoupe.setAttribute("id","souc"+this.id);
         soucoupe.src = this.img;
         soucoupe.style.position = "absolute";
         soucoupe.style.top = this.posY + "px";
@@ -36,17 +36,20 @@ class Soucoupe {
 
     }
     display() {
-        var soucoupe = document.getElementById(this.id);
+        var soucoupe = document.getElementById("souc"+this.id);
         soucoupe.style.top = this.posY + "px";
         soucoupe.style.left = this.posX + "px";
 
 
     }
     move() {
-        var x = Math.floor((Math.random()* 10) + 1);
-        this.posY += x;
+       // var x = Math.floor((Math.random()* 10) + 1);
+        var y = Math.floor(Math.random()*(1-(-1))+(-1));
+        this.posY -= y;
         this.posX -=50;
+        this.display();
 
     }
+
 
 }

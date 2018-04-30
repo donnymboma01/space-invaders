@@ -1,26 +1,19 @@
+//tableau pour les tirs.
 let tableaux = [];
-var tirer;
+//tableau pour les soucoupes afin qu'elles avancent.
 let tab = [];
-let drop = [];
+//tableau pour les soucoupes.
+
+
 //Création et afffichage du vaisseau sur le champ de batille.
 var afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
 afficherLeVaisseaux.initHtml();
 console.log(afficherLeVaisseaux);
 
-
-
-
-
 //var soucoupe = new Soucoupe(900,200); soucoupe à une position fixe bien determinée.
 //var x = Math.floor((Math.random()*(970)+1));
 var y = Math.floor((Math.random() * 370) + 1);
 var soucoupe = new Soucoupe(950, y);
-
-
-
-soucoupe.initHtml();
-soucoupe.move();
-
 
 
 //la fonction permet de deplacer le vaisseau sur le champ de bataille grace aux touches du clavier.
@@ -37,17 +30,18 @@ function affKeyCode(event) {
     }
     // quand on appui sur la touche 'espace' du clavier on ouvre le feu.
     if (key == 32) {
-        afficherLeVaisseaux.fire();
-        let drops = new Tir(afficherLeVaisseaux.posX,afficherLeVaisseaux.posY);
-        drop.push(drops);
-        console.log("Feu!")
+        let tirer = afficherLeVaisseaux.fire();
+        tableaux.push(tirer);
+        tirer.initHtml();
     }
 
 }
-/*manipule la fonction game qui reprend presque toutes les méthodes du jeu.
+/*manipule la fonction game qui reprend prèsque toutes les méthodes du jeu.
 chaque une seconde une nouvelle soucoupe apparait.*/
-
-var intervalle = setInterval(game, 700);
+function main() {
+     setInterval(game, 1000);
+}
+main();
 //cette fonction crée des soucoupes et les affiche sur le champ de batail
 
 function creationDesSoucoupes() {
@@ -59,21 +53,24 @@ function creationDesSoucoupes() {
         console.log("les ennemis debarquent !");
     }
 }
-//la fonction permet l'avancement des soucoupes ennemis de droite à gauche.
-function avancementSoucoupes(){
+//permet de faire avancer les tirs vers les soucoupes ennemis afin de les detruire mais ne fait encore rien au moment de la collision entre soucoupe et tir.
+
+function avancementTir() {
+    for (let i = 0; i < tableaux.length; i++) {
+        tableaux[i].move();
+    }
 
 }
-//permet dee faire avancer les tirs vers les soucoupes ennemis afin de les detruire.
-function avancementTir() {
-    //drop = new Tir(40,200) ;
-    for(let i=0;i<drop.length;i++){
-        drop[i].initHtml();
-        drop[i].move();
+//la fonction permet l'avancement des soucoupes ennemis de droite à gauche.
+function avancementSoucoupes() {
+    for (let j = 0; j < tab.length; j++) {
+        tab[j].move();
 
     }
 
 }
-//fait avancer les tirs avec une intervalle de temps de 100 millisecondes différent de celui définit pour la fonction game car mieux .
+
+//fait avancer les tirs avec une intervalle de temps de 100 millisecondes(plus vite) différent de celui définit pour la fonction game car mieux .
 setInterval(avancementTir,100);
 
 
@@ -81,8 +78,8 @@ setInterval(avancementTir,100);
 function game() {
     creationDesSoucoupes();
     avancementSoucoupes();
+   // avancementTir();
 
 
 
 }
-
