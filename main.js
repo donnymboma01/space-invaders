@@ -23,7 +23,7 @@ soucoupe.move();
 
 
 
-//la fonction permet de deplacer le vaisseau sur le champ de bataille.
+//la fonction permet de deplacer le vaisseau sur le champ de bataille grace aux touches du clavier.
 
 function affKeyCode(event) {
     var key = event.keyCode;
@@ -43,9 +43,24 @@ function affKeyCode(event) {
 
 }
 //manipule la fonction game qui reprend presque toutes les méthodes du jeu.
-var intervalle = setInterval(game,100);
+//chaque une seconde une nouvelle soucoupe apparait.
 
+var intervalle = setInterval(game,1000);
+//cette fonction crée des soucoupes et les affiche sur le champ de batail
+
+function creationDesSoucoupes() {
+    var posY =  Math.floor((Math.random()*370)+1);
+    if(tab.length < 10) {
+        var soucoupe = new Soucoupe(950,posY);
+        soucoupe.initHtml();
+        tab.push(soucoupe);
+        console.log("les ennemis debarquent !");
+    }
+}
+
+//la fonction reprend les autres fonctions importantes du jeu et permet la dynamique du jeu.
 function game() {
+    creationDesSoucoupes();
 
 
 }
