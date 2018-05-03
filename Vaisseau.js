@@ -1,3 +1,4 @@
+//B112,MBOMA DONNY-49829
 // Classe représentant le vaisseau
 class Vaisseau {
 
@@ -34,6 +35,7 @@ class Vaisseau {
         vaisseau.style.top = this.posY + "px";
         vaisseau.style.left = this.posX + "px";
     }
+    //affiche le vaisseau à sa position actuelle.
     dislay() {
         var vaisseau = document.getElementById('vaisseau');
         vaisseau.src = this.img;
@@ -53,8 +55,9 @@ class Vaisseau {
     }
     //méthode arme le vaisseau des munitions necessaire pour combattre sur le champ de bataille.
 
-   fire(){
-        let tirer = new Tir(87,this.posY+10);
+    fire() {
+        let tirer = new Tir(87, this.posY + 10);
+        tirer.initHtml();
         return tirer;
     }
 }
