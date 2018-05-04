@@ -1,21 +1,20 @@
-
 //B112, MBOMA DONNY-49829
-let compt =0;
+let compt = 0;
 class Tir {
     //prend en paramètre les deux positions du tir.
-    constructor(posX,posY){
-        this.posX=posX;
-        this.posY=posY;
-        this.img="images/tir.png";
-        this.id=compt++;
+    constructor(posX, posY) {
+        this.posX = posX;
+        this.posY = posY;
+        this.img = "images/tir.png";
+        this.id = compt++;
     }
-    get id(){
+    get id() {
         return this._id;
     }
-    set id(value){
-        this._id=value;
+    set id(value) {
+        this._id = value;
     }
-     get posY() {
+    get posY() {
         return this._posY;
     }
     set posY(value) {
@@ -28,30 +27,26 @@ class Tir {
         this._posX = value;
     }
     //crée le html necessaire pour le tir
-    initHtml(){
+    initHtml() {
         var tirer = document.createElement("img");
-        tirer.setAttribute("id","tirons"+this.id);
-       // tirer.src=this.img;
-        //tirer.style.position="absolute";
-       // tirer.style.top=this.posY +"px";
-        //tirer.style.left=this.posX+ "px";
+        tirer.setAttribute("id", "tirons" + this.id);
         document.getElementById("game").appendChild(tirer);
     }
     //affiche dans le jeu ,le tir à sa position actuelle.
-    display(){
-        var tirer = document.getElementById("tirons"+this.id);
-        tirer.src=this.img;
-        tirer.style.position="absolute";
-        tirer.style.top=this.posY +"px";
-        tirer.style.left=this.posX + "px";
+    display() {
+        var tirer = document.getElementById("tirons" + this.id);
+        tirer.src = this.img;
+        tirer.style.position = "absolute";
+        tirer.style.top = this.posY + "px";
+        tirer.style.left = this.posX + "px";
 
 
 
     }
     //avance la position du tir d'un distance constante.
-    move(){
-            this.posX +=20 ;
-            this.display();
+    move() {
+        this.posX += 15;
+        this.display();
 
     }
 }

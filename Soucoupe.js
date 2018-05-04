@@ -6,8 +6,7 @@ class Soucoupe {
         this.posX = posX;
         this.posY = posY;
         this.img = "images/flyingSaucer-petit.png";
-        this.id = comptage;
-        comptage++;
+        this.id = "a" + comptage++;
     }
     get posX() {
         return this._posX;
@@ -31,10 +30,6 @@ class Soucoupe {
     initHtml() {
         var soucoupe = document.createElement("img");
         soucoupe.setAttribute("id", "souc" + this.id);
-        /*soucoupe.src = this.img;
-        soucoupe.style.position = "absolute";
-        soucoupe.style.top = this.posY + "px";
-        soucoupe.style.left = this.posX + "px";*/
         document.getElementById("game").appendChild(soucoupe);
 
     }
@@ -50,11 +45,13 @@ class Soucoupe {
     }
     //Avance la position de la soucoupe verticalement et horizontalement.
     move() {
-        // var x = Math.floor((Math.random()* 10) + 1);
-        var y = Math.floor(Math.random() * (1 - (-1)) + (-1));
-        this.posY -= y;
-        this.posX -= 50;
-        this.display();
+       // if (this.posY > 10 && this.posY  < 360) {
+            var y = Math.floor(Math.random() * (2 - (-2)) + (-2));
+            this.posY -= y;
+            this.posX -= 5;
+            this.display();
+       // }
+
 
     }
 
