@@ -1,4 +1,4 @@
-//B112, MBOMA DONNY-49829
+
 let compt = 0;
 class Tir {
     //prend en paramètre les deux positions du tir.

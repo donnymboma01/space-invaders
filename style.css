@@ -50,6 +50,7 @@ span#score {
     background-color: white;
     padding: 4px;
     margin: 4px;
+    
 }
 
 #canvas {
@@ -59,6 +60,7 @@ span#score {
     height: 400px;
 
 }
+
 
 footer {
     text-align: center;
@@ -71,3 +73,4 @@ footer {
     color:white;
 
 }
+

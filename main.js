@@ -1,34 +1,30 @@
-//B112, MBOMA DONNY-49829
-
+//le score du jeu.
+let score =0 ;
 //tableau pour les tirs.
 let tableaux = [];
 //tableau pour les soucoupes afin qu'elles avancent.
 let tab = [];
 //tableau pour les soucoupes.
-var soucoupe;
+let soucoupe;
+loadName();
+updateUI();
+loadScore();
+updateUIScore();
+
 
 
 
 //Création et afffichage du vaisseau sur le champ de batille.
-var afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
+let afficherLeVaisseaux = new Vaisseau("images/vaisseau-ballon-petit.png");
 afficherLeVaisseaux.initHtml();
 console.log(afficherLeVaisseaux);
 
-//la fonction permet de deplacer le vaisseau sur le champ de bataille grace aux touches du clavier.
-/*function affKeyCode(event) {
-    var key = event.keyCode;
-    switch(key){
-        case 38 : afficherLeVaisseaux.move(-20);
-            break;
-        case 40 : afficherLeVaisseaux.move(20);
-            break;
-    }
-} */
+
 
 //la fonction permet de deplacer le vaisseau sur le champ de bataille grace aux touches du clavier.
 
 function affKeyCode(event) {
-    var key = event.keyCode;
+    let key = event.keyCode;
     if (key == 38) {
         afficherLeVaisseaux.move(-20);
         console.log("le vaisseau va vers le haut");
@@ -57,7 +53,7 @@ function main() {
 main();
 //cette fonction crée des soucoupes et les affiche sur le champ de batail
 function creationDesSoucoupes() {
-    var posY = Math.floor((Math.random() * 370) + 1);
+    let posY = Math.floor((Math.random() * 370) + 1);
     soucoupe = new Soucoupe(950, posY);
     soucoupe.initHtml();
     tab.push(soucoupe);
@@ -66,6 +62,8 @@ function creationDesSoucoupes() {
 
 }
 //permet de faire avancer les tirs vers les soucoupes ennemis afin de les detruire mais ne fait encore rien au moment de la collision entre soucoupe et tir.
+
+
 
 function avancementTir() {
     for (let i = 0; i < tableaux.length; i++) {
@@ -84,27 +82,27 @@ function avancementSoucoupes() {
     }
 
 }
-
-
-
-
 //Vérifie si une soucoupe a été touchée par un tir,si oui la soucoupe est supprimiée du champ de bataille.
 
 function soucoupeDetruite() {
-    for (var tir of tableaux) {
+    for (let tir of tableaux) {
         for (let j = 0; j < tab.length; j++) {
-            var x = Math.abs(tab[j].posX - tir.posX) + 3;
-            var y = Math.abs((tab[j].posY + 15) - tir.posY);
-            var dist = Math.sqrt(x * x + y * y);
+            let x = Math.abs(tab[j].posX - tir.posX) + 3;
+            let y = Math.abs((tab[j].posY + 15) - tir.posY);
+            let dist = Math.sqrt(x * x + y * y);
             if (dist < 20) {
                 let souco = document.getElementById("souc" + tab[j].id);
                 souco.parentNode.removeChild(souco);
                 tab.splice(j, 1);
+                temps -= 10;
                 let t = document.getElementById("tirons" + tir.id);
 
                 t.parentNode.removeChild(t);
 
                 tableaux.splice(tableaux.indexOf(tir), 1);
+
+                score++;
+               // console.log("ennemi touché !")
             }
         }
     }
@@ -112,6 +110,7 @@ function soucoupeDetruite() {
 
 
 //la fonction reprend prèsque les autres fonctions importantes du jeu et permet la dynamique du jeu.
+//le chrono ne passe pas en paramètre car il a deja un setInterva totalement différent de celui des autres fonctions(méthodes).
 function game() {
     if (tab.length < 10) {
         creationDesSoucoupes();
@@ -120,8 +119,8 @@ function game() {
     avancementTir();
     soucoupeDetruite();
     limitSoucoupe();
-
-
+    afficherScore();
+    augmenterTemps();
 
 }
 //la fonction fait disparaitre les soucoupes une fois arrivées au bord du cadre.
@@ -132,10 +131,12 @@ function limitSoucoupe() {
             let souc = document.getElementById("souc" + tab[j].id);
             souc.parentNode.removeChild(souc);
             tab.splice(j, 1);
+          //  score--;
+
         }
     }
 }
-//la fonction fait disparaitre les tiirs une fois au bord du cadre .
+//la fonction fait disparaitre les tirs une fois au bord du cadre .
 function limitTirs() {
     for (let i = 0; i < tableaux.length; i++) {
         if (tableaux[i].posX + 20 > 980) {
@@ -144,4 +145,8 @@ function limitTirs() {
             tableaux.splice(i, 1);
         }
     }
+}
+// la fonction affiche le score du joueur.
+function afficherScore (){
+    document.getElementById("score").innerHTML=score;
 }

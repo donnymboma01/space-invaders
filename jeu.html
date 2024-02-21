@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--B112,MBOMA DONNY-49829-->
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
@@ -8,11 +8,21 @@
     <title>Bataille Spatiale</title>
     <meta name="author" content="YourName" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 
 </head>
+<header>
+    <div class="jeu">
+        <p id="titre"> <img src="images/spacein.jpg" width="500" height="150" />
+        </p>
+    </div>
+</header>
 
 <body onkeydown="affKeyCode(event)">
+
     <div id="canvas">
         <canvas id="stars" width="1000" height="400">
         </canvas>
@@ -23,16 +33,22 @@
         </div>
 
     </div>
+
     <div id="control">
-        score : <span id="score"> 0 </span>
-        <span id="chronotime">00:00</span><br>
+
+        score :<span id="score"></span>
+        <span id="chronotime">00:00</span><br/>
     </div>
+    <h2> Joueur :<span id="name"></span></h2>
+    <h3>Meilleur score : <span id="meilleur"></span></h3>
+    
 
 
 </body>
-<script src="Vaisseau.js"></script>
+<script src="Vaisseau.js"></script> 
 <script src="Tir.js"></script>
 <script src="Soucoupe.js"></script>
+<script src="timing.js"></script>
 <script src="main.js"></script>
 
 

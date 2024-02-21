@@ -1,0 +1,15 @@
+.jeu {
+    text-align: center
+}
+
+.chron {
+    font-size: 30px;
+}
+
+.chronos {
+    font-size: 30px;
+    border: solid 5px red;
+    background-color: red;
+    color: white;
+
+}

@@ -1,4 +1,3 @@
-//B112,MBOMA DONNY-49829
 // Classe représentant le vaisseau
 class Vaisseau {
 
